@@ -1,9 +1,9 @@
 import "./style.css";
 
-const jsonData =
-  '{"title": "My favorite Movies", "movies": [{"title": " The Shawshank Redemption", "year": 1994, "director": "Frank Daranbont"},{"title": " The Godfather","year": 1972, "director": "Francis Ford Coppola"},{"title": "The Dark Knight", "year": 2008, "director": "Christopher Nolan"}]}';
+// const jsonData =
+//   '{"title": "My favorite Movies", "movies": [{"title": " The Shawshank Redemption", "year": 1994, "director": "Frank Daranbont"},{"title": " The Godfather","year": 1972, "director": "Francis Ford Coppola"},{"title": "The Dark Knight", "year": 2008, "director": "Christopher Nolan"}]}';
 
-const movieData = JSON.parse(jsonData);
+// const movieData = JSON.parse(jsonData);
 
 // document.body.innerHTML = `<h1>${movieData.title}</h1>
 // <h2>Movies</h2>
@@ -46,15 +46,93 @@ const movieData = JSON.parse(jsonData);
 //   app.appendChild(movieContainer);
 // });
 
+// console.log(1);
+// console.log(2);
+// console.log(3);
+
+// function fetcAllFacebookUsersData() {
+//   setTimeout(function () {
+//     console.log("fetching weather");
+//   }, 5000);
+// }
+
+// fetcAllFacebookUsersData();
+
+// console.log(4);
+// console.log(5);
+
+// function countToTen() {
+//   for (let i = 1; i <= 10; i++) {
+//     console.log(i);
+//   }
+// }
+
+// console.log("Start Counting");
+// countToTen();
+// console.log("End Counting");
+
+// console.log(1);
+// console.log(2);
+
+// function sayHello() {
+//   console.log("hello");
+// }
+
+// setTimeout(sayHello, 3000);
+
+// console.log(4);
+
+// function getQuote() {
+//   return new Promise((resolve, reject) => {
+//     fetch("https://api.quotable.io/quotes/random")
+//       .then((response) => {
+//         return response.json();
+//       })
+//       .then((data) => resolve(data))
+//       .catch((error) => reject(error));
+//   });
+// }
+
+// getQuote()
+//   .then((data) => {
+//     document.body.innerHTML = `<h1>${data[0].author}</h1>
+//     <p>${data[0].content}</p>`;
+//   })
+//   .catch((error) => console.error(error));
+
+// function fetchData() {
+//   return new Promise((resolve, reject) => {
+//     fetch("https://jsonplaceholder.typicode.com/posts/1")
+//       .then((response) => response.json())
+//       .then((data) => resolve(data))
+//       .catch((error) => reject(error));
+//   });
+// }
+
+// fetchData()
+//   .then((data) => {
+//     document.body.innerHTML = `<h1>${data.title}</h1>
+//    <p>${data.body}</p>`;
+//   })
+//   .catch((error) => console.error(error));
+
 console.log(1);
 console.log(2);
 console.log(3);
 
-function fetchWeather() {
-  console.log("fetching weather");
+async function fetchQuote() {
+  try {
+    const response = await fetch("https://api.quotable.io/quotes/random");
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    throw new Error(error);
+  }
 }
 
-fetchWeather();
+fetchQuote()
+  .then((data) => console.log(data[0]))
+  .catch((error) => console.error(error));
 
 console.log(4);
 console.log(5);
